@@ -26,8 +26,9 @@ function operate(operator,num1,num2) {
     }
 }
 
-const buttons = document.querySelector('#test')
-buttons.onmouseover = () => buttons.classList.add('hoverEffect');
-buttons.onmouseout = () => buttons.classList.remove('hoverEffect');
-
-
+//Hover effect for all buttons
+const buttons = document.querySelectorAll('button')
+buttons.forEach((button) => {
+    button.onmouseover = () => button.classList.add('hoverEffect');
+    button.onmouseout = () => button.classList.remove('hoverEffect');
+});
