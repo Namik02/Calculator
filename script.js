@@ -28,13 +28,30 @@ function operate(operator,num1,num2) {
 
 const output = document.querySelector('#output')
 
+
 //Hover effect for all buttons
 const buttons = document.querySelectorAll('button')
 buttons.forEach((button) => {
     button.onmouseover = () => button.classList.add('hoverEffect');
     button.onmouseout = () => button.classList.remove('hoverEffect');
-    button.onclick = () => output.textContent = button.innerHTML
+    
 });
+
+// Function to add output functionality to specified button class
+function addOutput(buttons) {
+    buttons.forEach((button) => {
+        button.onclick = () => output.textContent = button.innerHTML
+    }) 
+    
+}
+
+// Selectors and called functions for button class
+const number = document.querySelectorAll('.number')
+const operator = document.querySelectorAll('.operator')
+addOutput(number)
+addOutput(operator)
+
+
 
 
 
