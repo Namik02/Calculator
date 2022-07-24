@@ -43,6 +43,9 @@ button {
 
     font-size: large;
 } 
+button:active {
+    background-color: red;
+}
 .number{
 
 }

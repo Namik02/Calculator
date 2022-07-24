@@ -32,3 +32,6 @@ buttons.forEach((button) => {
     button.onmouseover = () => button.classList.add('hoverEffect');
     button.onmouseout = () => button.classList.remove('hoverEffect');
 });
+
+
+
