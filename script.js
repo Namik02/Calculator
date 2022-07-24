@@ -25,3 +25,9 @@ function operate(operator,num1,num2) {
             break;
     }
 }
+
+const buttons = document.querySelector('#test')
+buttons.onmouseover = () => buttons.classList.add('hoverEffect');
+buttons.onmouseout = () => buttons.classList.remove('hoverEffect');
+
+
