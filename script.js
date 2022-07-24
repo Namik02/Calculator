@@ -26,12 +26,20 @@ function operate(operator,num1,num2) {
     }
 }
 
+const output = document.querySelector('#output')
+
 //Hover effect for all buttons
 const buttons = document.querySelectorAll('button')
 buttons.forEach((button) => {
     button.onmouseover = () => button.classList.add('hoverEffect');
     button.onmouseout = () => button.classList.remove('hoverEffect');
+    button.onclick = () => output.textContent = button.innerHTML
 });
+
+
+
+
+
 
 
 
