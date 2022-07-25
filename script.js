@@ -68,11 +68,11 @@ number.forEach((button) => {
 // Functionality for .operator buttons
 const operator = document.querySelectorAll('.operator')
 operator.forEach((button) => {
-    button.addEventListener('click', () => {
-        storedNumber1 = output.textContent;
-        output.textContent =  button.innerHTML;
-        storedOperator = output.textContent;
-    });
+button.addEventListener('click', () => {
+    storedNumber1 = output.textContent;
+    output.textContent =  button.innerHTML;
+    storedOperator = output.textContent;
+});
 })
 
 // Functionality for equal button
@@ -80,6 +80,15 @@ const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
     storedNumber2 = output.textContent;
     output.textContent = operate(storedOperator,storedNumber1,storedNumber2)
+})
+
+// Functionality for C button
+const c = document.querySelector('#c');
+c.addEventListener('click' , () => {
+    output.textContent = output.textContent.slice(0, -1)
+    if (output.textContent === "") {
+        output.textContent = 0
+    }
 })
 
 //Functionality for A/C button
@@ -91,6 +100,16 @@ ac.addEventListener('click', () => {
     storedOperator = null
 })
 
+//Functionality for +/- button
+const plusMinus = document.querySelector('#plusMinus');
+plusMinus.addEventListener('click', () => {
+    if (output.innerHTML == 0 || output.innerHTML == "+" || output.innerHTML == "-" || output.innerHTML == "×" || output.innerHTML == "÷") {
+    } else if (output.innerHTML.charAt(0) == "-") {
+        output.textContent = output.textContent.slice(1)
+    } else {
+        output.textContent = "-" + output.textContent
+    }
+})
 
 
 
