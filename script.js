@@ -1,5 +1,5 @@
 function add(num1,num2) {
-    return num1 + num2
+    return +num1 + +num2
 }
 function subtract(num1,num2) {
     return num1 - num2
@@ -17,20 +17,14 @@ function operate(operator,num1,num2) {
             return add(num1,num2) 
         case "-":
             return subtract(num1,num2)
-        case "*":
+        case "×":
             return multiply(num1,num2)
-        case "/":
+        case "÷":
             return divide(num1,num2)
         default:
             break;
     }
 }
-
-
-let storedNumber1 = null
-let storedNumber2 = null
-let storedOperator = null
-
 
 
 
@@ -41,6 +35,15 @@ buttons.forEach((button) => {
     button.onmouseout = () => button.classList.remove('hoverEffect');
     
 });
+
+
+
+// Memory 
+let storedNumber1 = null
+let storedNumber2 = null
+let storedOperator = null
+
+
 
 // Function to change output
 const output = document.querySelector('#output')
@@ -53,6 +56,7 @@ function outputChange(button) {
 }
 
 
+
 // Functionality for .number buttons
 const number = document.querySelectorAll('.number')
 number.forEach((button) => {
@@ -60,6 +64,7 @@ number.forEach((button) => {
         outputChange(button);
       });
 })
+
 // Functionality for .operator buttons
 const operator = document.querySelectorAll('.operator')
 operator.forEach((button) => {
@@ -70,6 +75,13 @@ operator.forEach((button) => {
     });
 })
 
+// Functionality for equal button
+const equal = document.querySelector('#equal');
+equal.addEventListener('click', () => {
+    storedNumber2 = output.textContent;
+    output.textContent = operate(storedOperator,storedNumber1,storedNumber2)
+})
+
 //Functionality for A/C button
 const ac = document.querySelector('#ac')
 ac.addEventListener('click', () => {
@@ -78,6 +90,7 @@ ac.addEventListener('click', () => {
     storedNumber2 = null
     storedOperator = null
 })
+
 
 
 
