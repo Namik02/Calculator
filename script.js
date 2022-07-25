@@ -76,6 +76,15 @@ button.addEventListener('click', () => {
     output.textContent =  button.innerHTML;
     storedOperator = output.textContent;
 });
+});
+
+// Functionality for decimal button
+const decimal = document.querySelector('#decimal');
+decimal.addEventListener('click', () => {
+    if (output.textContent.includes('.') || output.innerHTML == 0 || output.innerHTML == "+" || output.innerHTML == "-" || output.innerHTML == "×" || output.innerHTML == "÷") {
+    } else {
+        output.textContent = output.textContent + decimal.innerHTML
+    }
 })
 
 // Functionality for equal button
