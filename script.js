@@ -78,8 +78,11 @@ button.addEventListener('click', () => {
 // Functionality for equal button
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
-    storedNumber2 = output.textContent;
-    output.textContent = operate(storedOperator,storedNumber1,storedNumber2)
+    if (storedNumber1 !== null || storedOperator !== null) {
+        storedNumber2 = output.textContent;
+        output.textContent = operate(storedOperator,storedNumber1,storedNumber2)  
+    }
+    
 })
 
 // Functionality for C button
@@ -111,6 +114,14 @@ plusMinus.addEventListener('click', () => {
     }
 })
 
+//Functionality for % button
+const percentage = document.querySelector('#percentage');
+percentage.addEventListener('click', () => {
+    if (output.innerHTML == 0 || output.innerHTML == "+" || output.innerHTML == "-" || output.innerHTML == "×" || output.innerHTML == "÷") {
+    } else {
+        output.textContent = output.textContent / 100
+    }
+})
 
 
 
