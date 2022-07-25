@@ -27,12 +27,11 @@ function operate(operator,num1,num2) {
 }
 
 
-let var1 = 0
-let var2 = null
-let var3 = null
+let storedNumber1 = null
+let storedNumber2 = null
+let storedOperator = null
 
 
-const output = document.querySelector('#output')
 
 
 //Hover effect for all buttons
@@ -43,17 +42,10 @@ buttons.forEach((button) => {
     
 });
 
-// Function to add output functionality to specified button class
-function addOutput(buttons) {
-    buttons.forEach((button) => {
-            button.onclick = () => test(button)
-    }) 
-
-}
-
 // Function to change output
-function test(button) {
-    if (output.innerHTML == 0 || output.innerHTML == "+" || output.innerHTML == "-" || output.innerHTML == "X" || output.innerHTML == "÷") {
+const output = document.querySelector('#output')
+function outputChange(button) {
+    if (output.innerHTML == 0 || output.innerHTML == "+" || output.innerHTML == "-" || output.innerHTML == "×" || output.innerHTML == "÷") {
         output.textContent =  button.innerHTML
     } else {
         output.textContent = output.textContent + button.innerHTML
@@ -61,23 +53,33 @@ function test(button) {
 }
 
 
-// Selectors and called functions for button class
+// Functionality for .number buttons
 const number = document.querySelectorAll('.number')
+number.forEach((button) => {
+    button.addEventListener('click', () => {
+        outputChange(button);
+      });
+})
+// Functionality for .operator buttons
 const operator = document.querySelectorAll('.operator')
-addOutput(number)
-addOutput(operator)
-
-
 operator.forEach((button) => {
-    button.onclick = () => var1 = 2
-    button.onclick = () => output.textContent =  button.innerHTML
+    button.addEventListener('click', () => {
+        storedNumber1 = output.textContent;
+        output.textContent =  button.innerHTML;
+        storedOperator = output.textContent;
+    });
+})
+
+//Functionality for A/C button
+const ac = document.querySelector('#ac')
+ac.addEventListener('click', () => {
+    output.textContent = 0
+    storedNumber1 = null
+    storedNumber2 = null
+    storedOperator = null
 })
 
 
-
-function var1creator() {
-    var1 = output.innerHTML
-}
 
 
 
