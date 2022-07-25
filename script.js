@@ -26,6 +26,12 @@ function operate(operator,num1,num2) {
     }
 }
 
+
+let var1 = 0
+let var2 = null
+let var3 = null
+
+
 const output = document.querySelector('#output')
 
 
@@ -40,10 +46,20 @@ buttons.forEach((button) => {
 // Function to add output functionality to specified button class
 function addOutput(buttons) {
     buttons.forEach((button) => {
-        button.onclick = () => output.textContent = button.innerHTML
+            button.onclick = () => test(button)
     }) 
-    
+
 }
+
+// Function to change output
+function test(button) {
+    if (output.innerHTML == 0 || output.innerHTML == "+" || output.innerHTML == "-" || output.innerHTML == "X" || output.innerHTML == "÷") {
+        output.textContent =  button.innerHTML
+    } else {
+        output.textContent = output.textContent + button.innerHTML
+    }
+}
+
 
 // Selectors and called functions for button class
 const number = document.querySelectorAll('.number')
@@ -52,11 +68,16 @@ addOutput(number)
 addOutput(operator)
 
 
+operator.forEach((button) => {
+    button.onclick = () => var1 = 2
+    button.onclick = () => output.textContent =  button.innerHTML
+})
 
 
 
-
-
+function var1creator() {
+    var1 = output.innerHTML
+}
 
 
 
