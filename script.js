@@ -69,6 +69,9 @@ number.forEach((button) => {
 const operator = document.querySelectorAll('.operator')
 operator.forEach((button) => {
 button.addEventListener('click', () => {
+    if (storedNumber1) {
+        
+    }
     storedNumber1 = output.textContent;
     output.textContent =  button.innerHTML;
     storedOperator = output.textContent;
@@ -80,7 +83,14 @@ const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
     if (storedNumber1 !== null || storedOperator !== null) {
         storedNumber2 = output.textContent;
-        output.textContent = operate(storedOperator,storedNumber1,storedNumber2)  
+        result = operate(storedOperator,storedNumber1,storedNumber2)  
+        // output.textContent = result
+        if (result % 1 !== 0) {
+            result = Math.round((result) * 100000) / 100000
+            output.textContent = result
+        } else {
+            output.textContent = result
+        }
     }
     
 })
